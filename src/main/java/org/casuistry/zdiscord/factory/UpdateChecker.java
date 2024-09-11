@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
-import org.bukkit.Bukkit;
 import org.casuistry.zdiscord.zDiscord;
 
 import net.md_5.bungee.api.ChatColor;
@@ -32,7 +31,6 @@ public class UpdateChecker {
 	}
 
 	public void getVersion(final Consumer<String> consumer) {
-		Bukkit.getScheduler().runTaskAsynchronously(zDiscord.getInstance(), () -> {
 			try (InputStream inputStream = new URL(
 					"https://api.spigotmc.org/legacy/update.php?resource=" + this.resourceId).openStream();
 					Scanner scanner = new Scanner(inputStream)) {
@@ -42,7 +40,6 @@ public class UpdateChecker {
 			} catch (IOException exception) {
 				zDiscord.logger.warning("Failed to check for updates.");
 			}
-		});
 	}
 
 	public static String getUpdateMessage() {
