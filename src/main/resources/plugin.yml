@@ -2,6 +2,7 @@
 name: zDiscord
 version: 1.4.0-SNAPSHOT
 api-version: 1.16
+folia-supported: true
 
 #Credits
 author: Casuistry
